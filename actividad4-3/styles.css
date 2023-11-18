@@ -1,0 +1,146 @@
+/* Toda la pagina va a tener un fondo negro 
+sin margen y sin padding para que no me fastidie los padding y margin estandar de algunos elementos*/
+* {
+  margin: 0px;
+  padding: 0px;
+  background-color: black;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+/* La cabecera va a tener un menu y una imagen de cabecera */
+h3 {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-style: oblique;
+  color: white;
+}
+header {
+  position: relative;
+}
+/* Estilos para el video de fondo */
+#header_fondo {
+  width: 100%;
+  height: 100vh; /* Modificar el tamaño del video */
+  object-fit: cover;
+}
+
+/* Estilos para el menú */
+ul#menu {
+  background-color: black;
+  position: absolute;
+  max-width: 100vw;
+  width: 100%;
+  z-index: 1; /* Asegura que el menú esté encima del video */
+  color: wheat;
+  list-style: none;
+  opacity: 0.3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  transition: opacity 1s ease, color 1s ease;
+
+  #titulo_menu {
+    transition: display 1s ease;
+    order: 2;
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    padding: 10px;
+  }
+  #logo_menu {
+    display: none;
+    order: 1;
+  }
+  #buscar_menu {
+    transition: display 1s ease;
+    display: none;
+    order: 3;
+  }
+  /* max width significa si es menor que este ancho haz esto
+  min width lo opuesto */
+  #idioma_menu {
+    transition: display 1s ease;
+    display: none;
+    order: 5;
+  }
+  #buscar_text {
+    display: none;
+    background-color: #333;
+    border-radius: 10px;
+    border: 1px solid #dfdfdf;
+  }
+  #usuario_menu {
+    transition: display 1s ease;
+    display: none;
+    order: 4;
+  }
+  #carrito_menu {
+    transition: display 1s ease;
+    display: none;
+    order: 6;
+  }
+}
+
+ul#menu:hover {
+  opacity: 1;
+  #titulo_menu {
+    transition: display 1s ease;
+    order: 2;
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    padding: 10px;
+  }
+  #logo_menu {
+    display: inline-block;
+    order: 1;
+  }
+  #buscar_menu {
+    transition: display 1s ease;
+    display: inline-block;
+    order: 3;
+  }
+
+  /* max width significa si es menor que este ancho haz esto
+      min width lo opuesto */
+  #idioma_menu {
+    transition: display 1s ease;
+    display: inline-block;
+    order: 5;
+  }
+  #buscar_text {
+    display: inline-block;
+    background-color: #333;
+    border-radius: 10px;
+    border: 1px solid #dfdfdf;
+  }
+  @media (max-width: 780px) {
+    #buscar_text {
+      display: none;
+      background-color: #333;
+      border-radius: 10px;
+      border: 1px solid #dfdfdf;
+    }
+  }
+  #usuario_menu {
+    transition: display 1s ease;
+    display: inline-block;
+    order: 4;
+  }
+  #carrito_menu {
+    transition: display 1s ease;
+    display: inline-block;
+    order: 6;
+  }
+}
+@media (max-width: 780px) {
+  #header_fondo {
+    width: 100%;
+    height: 100vh; /* Modificar el tamaño del video */
+    object-fit: cover;
+    object-position: 33%; /* Mover el video 30px hacia la izquierda */
+  }
+}
