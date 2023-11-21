@@ -11,6 +11,8 @@ sin margen y sin padding para que no me fastidie los padding y margin estandar d
 a {
   color: white;
   text-decoration: none;
+  font-size: 33px;
+  font-style: oblique;
 }
 /* edicion de los titulos h3 para pantallas estandar y pequeñas */
 h3 {
@@ -38,6 +40,7 @@ ul#menu {
   position: absolute;
   max-width: 100vw;
   width: 100%;
+  height: 10%;
   z-index: 1; /* Asegura que el menú esté encima del video */
   color: wheat;
   list-style: none;
@@ -129,13 +132,13 @@ ul#menu:hover {
       border: 1px solid #dfdfdf;
     }
     #buscar_menu {
-      display: none;
+      display: block;
     }
     #idioma_menu {
       display: none;
     }
     #titulo_menu {
-      order: 3;
+      order: 8;
     }
   }
 
@@ -148,6 +151,14 @@ ul#menu:hover {
     transition: display 1s ease;
     display: inline-block;
     order: 6;
+  }
+  @media (max-width: 480px) {
+    #carrito_menu {
+      display: none;
+    }
+    #buscar_menu {
+      display: none;
+    }
   }
 }
 
@@ -169,9 +180,8 @@ ul#menu:hover {
 
 main {
   max-width: 100vw;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  display: flex;
+  flex-direction: column;
 }
 #autor {
   font-style: oblique;
@@ -180,28 +190,24 @@ main {
 }
 /* Primera seccion */
 #primera-seccion {
-  grid-column: 1/5;
-  grid-row: 1/3;
-  /* flex dentro del grid para ordenar la imagen y el texto */
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
 
   #primer-articulo {
     margin: 0;
     padding: 0;
   }
 }
+
 /* ----------------final Primera seccion--------------------------- */
 /* pimer articulo con animacion y video */
 #texto1 {
   display: none;
+  width: 100vw;
   text-align: center;
-  font-size: 12px;
-  padding: 20px;
+  font-size: 20px;
   padding-bottom: 30px;
   opacity: 0.5;
-  order: 1;
 }
 
 #imagen1 {
@@ -212,6 +218,7 @@ main {
   #texto1 {
     animation: myAnim 1.5s ease 0s 1 normal forwards;
     display: inline-block;
+    align-items: center;
   }
 }
 @keyframes myAnim {
@@ -348,13 +355,33 @@ button:hover span {
 
 /* segunda seccion */
 #segunda-seccion {
-  grid-column: 1/5;
-  grid-row: 3 / end;
+ 
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  
 }
-
+@media (max-width:930px){
+  #segunda-seccion {
+  grid-row: 2 / end;
+  }
+}
+.product-info {
+  padding: 20px;
+  margin: 20px;
+}
+#fila {
+  display: flex; /* Ajusta la fila para que use Flexbox */
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en filas */
+  justify-content: space-evenly; /* Espaciado uniforme entre los elementos */
+  width: 100%; /
+}
 #segunda-seccion img {
-  width: 100vw;
-  height: 200px;
+  max-width: 400px;
+  min-width: 150px;
+  max-width: 300px;
+  min-width: 100px;
 }
 /* --------------------final segunda seccion------------------- */
 
@@ -368,4 +395,82 @@ ul.redes-sociales {
   flex-direction: row;
   justify-content: space-evenly;
   list-style: none;
+  margin-top: 20px;
+}
+h5 {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-style: italic;
+  color: #f5d986;
+  font-weight: 500;
+  padding: 10px;
+}
+
+#Contacto {
+
+  padding: 20px;
+  margin: 20px;
+  padding-top: -20px;
+  margin-top: -30px;
+  justify-content: space-around;
+  width: 80%; /* Ancho del formulario */
+  max-width: 400px; /* Ancho máximo del formulario */
+}
+
+footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+ 
+}
+
+#formulario{
+  width: 80vw;
+  
+}
+form{
+  display: inline-block
+  width: 80%; /* Ancho del formulario */
+  text-align: center;
+  padding: 20px;
+}
+
+/* Estilos para los inputs */
+/* Estilos para los inputs */
+form input[type="text"],
+form input[type="email"],
+form textarea
+{
+  width: 100%;
+  padding: 12px; /* Aumentar el relleno interno */
+  margin-bottom: 15px;
+  border-radius: 8px; /* Aumentar el radio de borde */
+  border: 1px solid #ccc;
+  box-sizing: border-box; /* Garantiza que el padding no aumente el ancho total del input */
+  font-size: 16px; /* Tamaño de fuente */
+}
+form input[type="submit"] {
+  width: 20%;
+  padding: 6px; /* Aumentar el relleno interno */
+  margin-bottom: 15px;
+  border-radius: 8px; /* Aumentar el radio de borde */
+  border: 1px solid #ccc;
+  box-sizing: border-box; /* Garantiza que el padding no aumente el ancho total del input */
+  font-size: 16px; /* Tamaño de fuente */
+}
+/* Hacerlo responsive */
+@media (max-width: 768px) {
+  form {
+    width: 90%; /* Reducir el ancho del formulario en pantallas más pequeñas */
+  }
+
+  /* Redefinir estilos para inputs en pantallas más pequeñas si es necesario */
+  form input[type="text"],
+  form input[type="email"],
+  form textarea {
+    font-size: 14px; /* Reducir el tamaño de fuente en pantallas más pequeñas si es necesario */
+    padding: 10px; /* Modificar el relleno interno en pantallas más pequeñas si es necesario */
+  }
 }
